@@ -13,6 +13,15 @@ body {
     color: lightblue;
 }
 
+#replaybutton {
+    background-color: lightgreen;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: darkblue;
+    font-size: large;
+}
+
 #gameboard {
     width: 300px;
     height: 300px;
