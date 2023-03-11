@@ -1,22 +1,25 @@
 const gameBoard = document.querySelector('#gameboard')
 const infoDisplay = document.querySelector('#info')
-
-const startCells = [
-    "","","",
-    "","","",
-    "","",""
-]
+const replayButton = document.querySelector('#replaybutton')
 
 let player = 'circle'
 infoDisplay.textContent = 'Circle goes first'
 
 function createBoard() {
+    const startCells = [
+        "","","",
+        "","","",
+        "","",""
+    ]
+    gameBoard.innerHTML = ''
     startCells.forEach((_cell, index) => {
         const cellElement = document.createElement('div')
         cellElement.classList.add('square')
         cellElement.id = index
         cellElement.addEventListener('click', addElement)
         gameBoard.append(cellElement)
+        replayButton.setAttribute('hidden', true)
+        replayButton.addEventListener('click', createBoard)
     })
 }
 
@@ -49,6 +52,7 @@ function checkScore() {
             allSquares.forEach(square => {
                 square.replaceWith(square.cloneNode(true))
             })
+            replayButton.removeAttribute('hidden')
             return
         }
     })
@@ -61,6 +65,7 @@ function checkScore() {
             allSquares.forEach(square => {
                 square.replaceWith(square.cloneNode(true))
             })
+            replayButton.removeAttribute('hidden')
             return
         }
     })
